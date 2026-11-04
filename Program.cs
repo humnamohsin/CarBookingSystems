@@ -1,26 +1,19 @@
-using System;
-using CarBookingSystem.Car;
+using GameProject.Repositories;
+using GameProject.Services;
+using GameProject.UI;
 
-namespace CarBookingSystem
+namespace GameProject
 {
-    /// <summary>
-    /// Driver Code - Entry point of the application.
-    /// </summary>
-    class Program
+    internal class Program
     {
         static void Main(string[] args)
         {
-            // Create Repository
-            CarRepository carRepository = new CarRepository("Data/cars.txt");
-
-            // Create Service and inject Repository
-            CarService carService = new CarService(carRepository);
-
-            // Create UI and inject Service
-            CarUI carUI = new CarUI(carService);
-
-            // Start the application
-            carUI.Run();
+            // FLOW: create file repository -> game service -> console UI -> start menu.
+            // Main only connects the layers; it has no game rules or screen logic.
+            ScoreRepository repository = new ScoreRepository("scores.txt");
+            GameService service = new GameService(repository);
+            GameUI ui = new GameUI(service);
+            ui.Start();
         }
     }
 }
