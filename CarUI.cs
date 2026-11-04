@@ -374,6 +374,21 @@ namespace CarBookingSystem.Car
                 Console.WriteLine("------------------------------------------------------------");
             }
         }
+        private void PaginatedViewOptions(int pageSize)
+        {
+            MenuOptions
+                (char FirstPage: 'F';
+        char NextPage: 'N';
+        char PreviousPage: 'P';
+        char LastPage: 'L';
+        char ToExit: 'X'
+        );
+        if(page = 'F' && choice == P || page = 'L' && choice == N)
+            {
+
+            }
+
+
 
         private void Pause()
         {
